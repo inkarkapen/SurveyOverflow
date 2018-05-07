@@ -1,0 +1,9 @@
+<form (submit) = 'login()'>
+  <input type = 'text' name = 'name' minlength = 3 required #name = 'ngModel' [(ngModel)] = 'user.name'>
+  <input *ngIf='!name.errors' type = 'submit' value = 'Submit'>
+</form>
+<!--{{name.errors| json}}-->
+
+<div *ngIf="name.errors && name.dirty">
+  <p>Minimum length should be 3</p>
+</div>

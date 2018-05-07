@@ -1,0 +1,31 @@
+<h2>{{survey.question}}</h2>
+<p>Click the Vote button to choose one.</p>
+ 
+<table>
+  <tr>
+    <th>Option</th>
+    <th>Cureent Count of Votes</th>
+    <th>Action</th>
+  </tr>
+  <tr>
+    <td>{{survey.option1}}</td>
+    <td>{{survey.option1Votes}}</td>
+    <td><button (click) = 'vote(1)'>Vote</button></td>
+  </tr>
+  <tr>
+    <td>{{survey.option2}}</td>
+    <td>{{survey.option2Votes}}</td>
+    <td><button (click) = 'vote(2)'>Vote</button></td>
+  </tr>
+  <tr>
+    <td>{{survey.option3}}</td>
+    <td>{{survey.option3Votes}}</td>
+    <td><button (click) = 'vote(3)'>Vote</button></td>
+  </tr>
+  <tr>
+    <td>{{survey.option4}}</td>
+    <td>{{survey.option4Votes}}</td>
+    <td><button (click) = 'vote(4)'>Vote</button></td>
+  </tr>
+</table>
+<a routerLink="/dashboard"><h3>Go back</h3></a>

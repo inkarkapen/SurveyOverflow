@@ -1,0 +1,16 @@
+<h2>Put the question and options here: </h2>
+<form (submit) = 'create()'>
+  <br>Question: <input type = 'text' name = 'question' minlength = 8 required #question = 'ngModel' [(ngModel)] = 'survey.question'>
+  <br>Option 1: <input type = 'text' name = 'option1' minlength = 3 required #option1 = 'ngModel' [(ngModel)] = 'survey.option1'>
+  <br>Option 2: <input type = 'text' name = 'option2' minlength = 3 required #option2 = 'ngModel' [(ngModel)] = 'survey.option2'>
+  <br>Option 3: <input type = 'text' name = 'option3' minlength = 3 required #option3 = 'ngModel' [(ngModel)] = 'survey.option3'>
+  <br>Option 4: <input type = 'text' name = 'option4' minlength = 3 required #option4 = 'ngModel' [(ngModel)] = 'survey.option4'>
+  <br><input *ngIf = '!question.errors && !option1.errors && !option2.errors && !option3.errors && !option4.errors' type = 'submit' value = 'Create Poll'>
+</form>
+<div *ngIf='question.errors && question.dirty'>
+  <p>Minimum length should be 8</p>
+</div>
+<div *ngIf='(option1.errors || option2.errors || option3.errors || option4.errors) && question.dirty'>
+    <p>All options are required and should be minimum length of 3</p>
+</div>
+<a routerLink="/dashboard"><h3>Cancel</h3></a>

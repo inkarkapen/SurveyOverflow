@@ -1,0 +1,19 @@
+<h2>
+  Welcome, {{user.name}}
+</h2>
+<a href = '/logout'><h3>Logout</h3></a>
+<br><button style = 'background-color:aquamarine'(click) = 'showForm()'>Create a new Survey</button>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Survey Question</th>
+    <th>Date Posted</th>
+    <th>Action</th>
+  </tr>
+  <tr *ngFor = 'let survey of surveys let i = index' [attr.data-index]="i">
+    <td>{{ survey._creator.name }}</td>
+    <td><a routerLink="/poll/{{survey._id}}">{{ survey.question }}</a></td>
+    <td>{{ survey.createdAt | date: medium }}</td>
+    <td><button *ngIf = 'survey._creator.name == user.name' (click) = 'delete(survey, i)'>Delete</button></td>
+  </tr>
+</table>
